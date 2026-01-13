@@ -1,12 +1,11 @@
 class Tree{
     root;
-    constructor(array = []){
+    constructor(array){
         const sortedArr = array
-            .slice()
             .sort((a, b) => a - b)
             .filter((v, i, a) => i === 0 || v !== a[i - 1]);
 
-        this.root = this.buildTree(sortedArr);
+        this.root = this.sortedArrayToBSTRecur(sortedArr, 0, sortedArr.length - 1);
     }
 
     //Recursive Function to Create BST
