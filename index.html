@@ -10,8 +10,22 @@
     <script src="Node.js"></script>
     <script src="Tree.js"></script>
     <script>
+        const prettyPrint = (node, prefix = '', isLeft = true) => {
+            if (node === null) {
+                return;
+            }
+            if (node.right !== null) {
+                prettyPrint(node.right, `${prefix}${isLeft ? '│   ' : '    '}`, false);
+            }
+            console.log(`${prefix}${isLeft ? '└── ' : '┌── '}${node.data}`);
+            if (node.left !== null) {
+                prettyPrint(node.left, `${prefix}${isLeft ? '    ' : '│   '}`, true);
+            }
+        };
+
         var data = [12,5,45,87,32,12,47,4,5,5,3,7,8,7,9,7]
         var tree = new Tree(data);
+        
     </script>
 </body>
 </html>
