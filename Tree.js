@@ -25,10 +25,6 @@ class Tree{
     }
 
     insert(value, tree){
-        let tempTree;
-        if(tree.data == value){
-            return null;
-        }
         if(tree.data > value){
             if(tree.left === null){
                 tree.left = new Node(value);
@@ -37,11 +33,11 @@ class Tree{
             }
         }
         if(tree.data < value){
-            if(tree.Right == null){
-                tree.right.data = value;
+            if(tree.right === null){
+                tree.right = new Node(value);
             }else{
                 this.insert(value, tree.right);
-            }            
+            }
         }
     }
 
